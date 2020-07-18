@@ -1,0 +1,42 @@
+graph
+
+createUser
+
+mutation{
+  createUser(userInput:{First_name:"u",Last_name:"u",Sex:"u",Birth_Day:"u",ID_card:"u",Email:"u",Username:"u",Password:"u",Tell_number:"u",Tell_number2:"u",Facebook:"u",Line:"u"}){
+    First_name
+  }
+}
+
+mutation {
+  createFarm(farmInput: {Farm_number: "u", Farm_Village: "u", Farm_Road: "u", Farm_Village_number: "u", Farm_alley: "u", Farm_postcode: "u", Farm_canton: "u", Farm_District: "u", Farm_Province: "u"}) {
+    Farm_number
+  }
+}
+
+
+ {this.state.users.map(user => (
+              <li key={user._id}>
+                {user.First_name} 
+              </li>
+            ))}
+
+
+mutation {
+  createShare(shareInput: {Value: 60, Count: 2, Num_start: 1, Date: "2020-07-18T05:26:20.116Z", Share_owner: "5f126360b6bb9146d4f6de99"}) {
+    Value
+  }
+}
+
+
+mutation {
+  updateShare( shareId: "5f129941adcafb2570a935de",shareInput: {Value: 60, Count: 2, Num_start: 1, Date: "2020-07-18T05:26:20.116Z", Status: true, Share_owner: "5f126360b6bb9146d4f6de99"}) {
+    Status
+  }
+}
+
+query{
+  oneshare(Status:false){
+    _id
+  }
+}

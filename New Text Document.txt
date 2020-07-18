@@ -1,0 +1,25 @@
+npm init
+npm install --save express body-parser
+npm install --save-dev nodemon
+add in (package.json) "scripts": { ,
+"start": "nodemon app.js"
+}
+npm install --save express-graphql graphql 
+npm install --save mongoose
+
+npm install --save bcryptjs
+
+npm install -save jsonwebtoken
+
+npm init
+npm install create-react-app
+
+in cd front
+npx create-react-app .
+npm install --save react-router-dom
+npm install --save styled-components
+npm install antd
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-brands-svg-icons
+ npm i --save @fortawesome/fontawesome
+$ npm i --save @fortawesome/react-fontawesome

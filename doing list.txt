@@ -1,0 +1,36 @@
+install express body-parser nodemon 
+
+create app.js to main server
+
+install graphql
+
+set /graphql too http
+
+buildSchema
+{
+	create schema {
+		query and mutation
+	}
+}
+mondodb connect
+
+create nodemon.json
+
+mongoose
+
+connect
+
+create module folder
+
+replace arry which mongo
+
+mongo compass
+
+install bcryptjs
+
+
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/JimmyPiyawat/FarmProject.git
+git push -u origin master

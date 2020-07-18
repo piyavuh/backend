@@ -1,0 +1,9 @@
+query post man
+
+{
+"query":"query {login(id:\"mint\",password:\"mint\"){token} }"
+}
+
+{
+"query":"mutation {createStock(stockInput:{value:99,date:\"2020-06-21T05:20:07.194Z\"}){value} }"
+}
