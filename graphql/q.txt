@@ -85,3 +85,19 @@ date
 query all share_own
 
 
+
+cd existing_folder
+git init
+git remote add origin https://gitlab.com/Kunama/backend_farm.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
+
+cd existing_folder
+git init
+git remote add origin https://gitlab.com/Kunama/frontend_farm.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
+
