@@ -16,10 +16,14 @@ module.exports = buildSchema(`
     owner :User!
   }
         
-  
+  type AutoId{
+    _id: ID!
+    memberId: Float!
+  }
 
   type User {
     _id: ID!
+    id : String!
     First_name: String!
     Last_name: String!
     Sex : String!
@@ -40,9 +44,24 @@ module.exports = buildSchema(`
 
   type Officer{
     _id: ID!
-    id: String!
-    password:String!
-    privilege:String!
+    id : Float!
+    name_office : String!
+    lastname_office : String!
+    birthday_office : String!
+    idcard_office : String!
+    email_office : String!
+    username_office : String!
+    password_office : String!
+    tellnumber_office : String
+    tellnumber_office2 :String
+    facebook_office : String
+    line_office : String
+    position : String!
+    type_wage : String!
+    bank : String!
+    bankId : String!
+    banktype : String!
+    wage : Float!
   }
 
   type Farm{
@@ -83,9 +102,24 @@ module.exports = buildSchema(`
   }
 
   input OfficerInput{
-    id: String!
-    password:String!
-    privilege:String!
+    id : Float!
+    name_office : String!
+    lastname_office : String!
+    birthday_office : String!
+    idcard_office : String!
+    email_office : String!
+    username_office : String!
+    password_office : String!
+    tellnumber_office : String
+    tellnumber_office2 :String
+    facebook_office : String
+    line_office : String
+    position : String!
+    type_wage : String!
+    bank : String!
+    bankId : String!
+    banktype : String!
+    wage : Float!
   }
 
   input FarmInput{
@@ -111,6 +145,7 @@ module.exports = buildSchema(`
   }
   
   input UserInput{
+    id: String!
     First_name: String!
     Last_name: String!
     Sex : String!
@@ -124,21 +159,28 @@ module.exports = buildSchema(`
     Facebook:String
     Line :String
   }
+  input AutoIdInput{
+    memberId: Float!
+  }
 
   type RootQuery {
     stocks: [Stock!]!
+    autoIds : [AutoId]
     user:[User!]!
     users:[User!]!
+    officers:[Officer!]!
     officer:[Officer!]!
     sellingStocks: [SellingStock!]!
     login(Username: String!, Password: String!): AuthData!
     oneuser(Username: String!): User
     oneshare(Status: Boolean!): Share
     login_off(id: String!, password: String!): AuthData!
+    oneuser_name(First_name: String!): User
   }
 
   type RootMutation {
-    createStock(stockInput:StockInput): Stock
+    createStock( memberId: Float!): Stock
+    createAutoId(autoIdInput:AutoIdInput!):AutoId
     createUser(userInput:UserInput): User
     createSellingStock(stockID: ID!):SellingStock!
     cancelSellingStock(sellingStockId:ID!): Stock!
