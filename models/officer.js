@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 const officerSchema = new Schema({
   id : {
     type: Number,
@@ -61,5 +59,4 @@ const officerSchema = new Schema({
     required: true
   },
 });
-
 module.exports = mongoose.model('Officer', officerSchema);

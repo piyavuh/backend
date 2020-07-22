@@ -1,9 +1,7 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-
 const Officer = require('../../models/officer');
 const { showOfficerInfo } = require("./merge");
-
 
 module.exports = {
   officers: async () => {
@@ -23,7 +21,6 @@ module.exports = {
         throw new Error("officer exists already.");
       }
       const hashedPassword = await bcrypt.hash(args.officerInput.password_office, 12);
-
       const officer = new Officer({
         id: +args.officerInput.id,
         name_office: args.officerInput.name_office,
@@ -43,32 +40,29 @@ module.exports = {
         bankId: args.officerInput.bankId,
         banktype: args.officerInput.banktype,
         wage: +args.officerInput.wage,
-
       });
-
       const result = await officer.save();
-
       return { ...result._doc, password: null, _id: result._id };
     } catch (err) {
       throw err;
     } 
   },
-  login_off: async ({ username_office, password }) => {
+  login_off: async ({ username_office, password_office }) => {
     const officer = await Officer.findOne({ username_office: username_office });
     if (!officer) {
       throw new Error('Officer does not exist!');
     }
-    const isEqual = await bcrypt.compare(password, officer.password);
+    const isEqual = await bcrypt.compare(password_office, officer.password_office);
     if (!isEqual) {
       throw new Error('Password is incorrect!');
     }
     const token = jwt.sign(
-      { userId: officer.username_office, username_office: officer.username_office },
+      { userId: officer.username_office,positionId: officer.position, username_office: officer.username_office },
       'somesupersecretkey',
       {
         expiresIn: '1h'
       }
     );
-    return { userId: officer.username_office, token: token, tokenExpiration: 1 };
+    return { userId: officer.username_office,positionId: officer.position, token: token, tokenExpiration: 1 };
   }
 };

@@ -85,20 +85,6 @@ const showUserInfo = (user) => {
   };
 };
 
-const showOfficerInfo = (officer) => {
-  return {
-    ...officer._doc,
-    _id: officer._id,
-  };
-};
-
-const showAutoIdInfo = (user) => {
-  return {
-    ...user._doc,
-    _id: user._id,
-  };
-};
-
 const showFarmInfo = (farm) => {
   return {
     ...farm._doc,
@@ -124,6 +110,13 @@ const showStockInfo = (stock) => {
   };
 };
 
+const showOfficerInfo = (officer) => {
+  return {
+    ...officer._doc,
+    _id: officer.id,
+  };
+};
+
 const showSellingStockInfo = (sellingStock) => {
   return {
     ...sellingStock._doc,
@@ -134,9 +127,8 @@ const showSellingStockInfo = (sellingStock) => {
     updatedAt: dateToString(sellingStock._doc.updatedAt),
   };
 };
-exports.showOfficerInfo=showOfficerInfo;
+exports.showOfficerInfo = showFarmInfo;
 exports.showFarmInfo = showFarmInfo;
-exports.showAutoIdInfo = showAutoIdInfo;
 exports.showShareInfo = showShareInfo;
 exports.showStockInfo = showStockInfo;
 exports.showUserInfo = showUserInfo;
